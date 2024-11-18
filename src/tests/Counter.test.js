@@ -6,24 +6,22 @@ import userEvent from '@testing-library/user-event';
 
 import Counter from "../components/Counter";
 
-beforeEach(() => {
-  // Render the Counter component here
-  render(<Counter />);
-
-})
 
 test('renders counter message', () => {
+  render(<Counter />);
   const counterMessage = screen.getByText(/Counter/i);
   expect(counterMessage).toBeInTheDocument();
 
 });
 
 test('should render initial count with value of 0', () => {
+  render(<Counter />);
   const countValue = screen.getByTestId('count');
   expect(countValue).toHaveTextContent('0');
 });
 
 test('clicking + increments the count', async () => {
+  render(<Counter />);
   const count = screen.getByTestId('count');
   const incrementButton = screen.getByText('+');
   userEvent.click(incrementButton);
@@ -32,6 +30,7 @@ test('clicking + increments the count', async () => {
 });
 
 test('clicking - decrements the count', async () => {
+  render(<Counter />);
   const count = screen.getByTestId('count');
   const decrementButton = screen.getByText('-');
   
